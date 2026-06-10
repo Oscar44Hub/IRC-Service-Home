@@ -28,7 +28,7 @@ export default function Hero() {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 border border-foreground text-foreground px-6 py-3.5 text-sm font-medium hover:bg-foreground hover:text-primary-foreground transition-colors"
+              className="inline-flex items-center gap-2 border border-foreground text-foreground px-6 py-3.5 text-sm font-medium hover:bg-[#25D366] hover:border-[#25D366] hover:text-white transition-colors"
             >
               <MessageCircle className="h-4 w-4" /> WhatsApp
             </a>
