@@ -1,0 +1,9 @@
+export const PHONE = "661 30 94 66";
+export const PHONE_TEL = "+34661309466";
+export const WHATSAPP_URL = "https://wa.me/34661309466?text=" + encodeURIComponent("Hola IRC Service, me gustaría pedir información sobre una reforma.");
+export const EMAIL = "info@reformasentorrejon.com";
+export const WEBSITE = "reformasentorrejon.com";
+export const COMPANY = "IRC Service";
+export const ADDRESS = "Torrejón de Ardoz, Madrid";
+export const RATING = 4.9;
+export const REVIEWS = 99;
