@@ -3,7 +3,7 @@ import { X, ChevronLeft, ChevronRight, Images } from "lucide-react";
 
 const totalPhotos = 18;
 const photos = Array.from({ length: totalPhotos }, (_, i) => ({
-  src: new URL(`../assets/apartamento/foto-${String(i + 1).padStart(2, "0")}.jpg`, import.meta.url).href,
+  src: new URL(`../assets/APART_MADRID/foto-${i + 1}.jpg`, import.meta.url).href,
   alt: `Apartamento en Madrid · foto ${i + 1}`,
 }));
 
