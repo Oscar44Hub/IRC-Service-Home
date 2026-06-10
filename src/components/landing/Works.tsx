@@ -81,10 +81,8 @@ const cards = [
     id: "cataluna",
     component: <VideoCard src={video2} title="Reforma Piso Parque Cataluña, Torrejón" />,
   },
-  {
-    id: "chalet",
-    component: <ChaletGallery />,
-  },
+  // Chalet: activar cuando se renombren las fotos sin espacios (foto-1.jpeg, foto-2.jpeg...)
+  // { id: "chalet", component: <ChaletGallery /> },
 ];
 
 export default function Works() {
