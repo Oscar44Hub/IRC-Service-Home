@@ -1,4 +1,5 @@
 import { Star, ArrowRight, MessageCircle } from "lucide-react";
+import heroImg from "@/assets/hero-interior.jpg";
 import { RATING, REVIEWS, WHATSAPP_URL } from "@/lib/contact";
 
 export default function Hero() {
@@ -47,11 +48,14 @@ export default function Hero() {
         </div>
 
         <div className="lg:col-span-6 relative fade-up">
-          <div className="aspect-[4/5] overflow-hidden bg-surface-alt flex items-center justify-center">
-            <div className="text-center text-muted-foreground p-8">
-              <p className="text-sm">Imagen de reforma interior</p>
-              <p className="text-xs mt-1 opacity-60">hero-interior.jpg</p>
-            </div>
+          <div className="aspect-[4/5] overflow-hidden bg-surface-alt">
+            <img
+              src={heroImg}
+              alt="Salón reformado por IRC Service en Madrid con acabados impecables"
+              width={1920}
+              height={1080}
+              className="w-full h-full object-cover grayscale-[20%]"
+            />
           </div>
           <div className="hidden md:block absolute -bottom-6 -left-6 bg-background border border-hairline px-6 py-5 max-w-xs">
             <div className="eyebrow mb-2">Garantía por escrito</div>
