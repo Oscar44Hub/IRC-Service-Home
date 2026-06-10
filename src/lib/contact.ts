@@ -1,6 +1,6 @@
 export const PHONE = "661 30 94 66";
 export const PHONE_TEL = "+34661309466";
-export const WHATSAPP_URL = "https://wa.me/34661309466?text=" + encodeURIComponent("Hola IRC Service, me gustaría pedir información sobre una reforma.");
+export const WHATSAPP_URL = "https://api.whatsapp.com/send?phone=34661309466&text=" + encodeURIComponent("Hola IRC Service, me gustaría pedir información sobre una reforma.");
 export const EMAIL = "info@reformasentorrejon.com";
 export const WEBSITE = "reformasentorrejon.com";
 export const COMPANY = "IRC Service";
