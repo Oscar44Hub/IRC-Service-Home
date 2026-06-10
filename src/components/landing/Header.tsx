@@ -1,6 +1,6 @@
 import { Phone } from "lucide-react";
 import { PHONE, PHONE_TEL } from "@/lib/contact";
-import logoImg from "@/assets/logo.png";
+import logoImg from "@/assets/logo.svg";
 
 const links = [
   { label: "Servicios", href: "#servicios" },
@@ -15,7 +15,7 @@ export default function Header() {
     <header className="fixed top-0 inset-x-0 z-50 bg-background/85 backdrop-blur border-b border-hairline">
       <div className="container-edge flex items-center justify-between h-16">
         <a href="#top" className="flex items-center">
-          <img src={logoImg} alt="IRC Service" className="h-10 w-10 object-contain" />
+          <img src={logoImg} alt="IRC Service" className="h-12 w-12 object-contain" />
         </a>
         <nav className="hidden md:flex items-center gap-8">
           {links.map((l) => (
