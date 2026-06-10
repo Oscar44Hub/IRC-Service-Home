@@ -52,7 +52,7 @@ export default function Reviews() {
             <div className="mt-6 inline-flex items-center gap-3 border border-hairline px-4 py-2">
               <div className="flex">
                 {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="h-4 w-4 fill-foreground text-foreground" />
+                  <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                 ))}
               </div>
               <span className="text-sm text-muted-foreground">Verificado en Google</span>
@@ -65,7 +65,7 @@ export default function Reviews() {
             <figure key={i} className="bg-background p-7 flex flex-col gap-5">
               <div className="flex">
                 {Array.from({ length: 5 }).map((_, j) => (
-                  <Star key={j} className="h-4 w-4 fill-foreground text-foreground" />
+                  <Star key={j} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                 ))}
               </div>
               <blockquote className="text-base leading-relaxed text-foreground/90">
