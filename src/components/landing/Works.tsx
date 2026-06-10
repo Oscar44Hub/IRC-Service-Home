@@ -1,7 +1,6 @@
 import { useRef, useState, useEffect } from "react";
-import { Play, X } from "lucide-react";
+import { Play, X, Images } from "lucide-react";
 import ApartamentoGallery from "./ApartamentoGallery";
-import ChaletGallery from "./ChaletGallery";
 import video1 from "@/assets/video-1.mp4";
 import video2 from "@/assets/video-2.mp4";
 
@@ -68,6 +67,23 @@ function VideoCard({ src, title }: { src: string; title: string }) {
   );
 }
 
+function ChaletPlaceholder() {
+  return (
+    <>
+      <div className="relative aspect-[4/3] bg-surface-alt flex items-center justify-center overflow-hidden group cursor-default">
+        <div className="text-center text-muted-foreground px-6">
+          <Images className="h-10 w-10 mx-auto mb-3 opacity-30" />
+          <p className="text-sm font-medium">Chalet Soto Torrejón</p>
+          <p className="text-xs opacity-60 mt-1">Galería próximamente</p>
+        </div>
+      </div>
+      <div className="mt-4 px-1">
+        <h3 className="font-display font-semibold text-base leading-snug">Chalet Soto Torrejón</h3>
+      </div>
+    </>
+  );
+}
+
 const cards = [
   {
     id: "hld",
@@ -81,8 +97,10 @@ const cards = [
     id: "cataluna",
     component: <VideoCard src={video2} title="Reforma Piso Parque Cataluña, Torrejón" />,
   },
-  // Chalet: activar cuando se renombren las fotos sin espacios (foto-1.jpeg, foto-2.jpeg...)
-  // { id: "chalet", component: <ChaletGallery /> },
+  {
+    id: "chalet",
+    component: <ChaletPlaceholder />,
+  },
 ];
 
 export default function Works() {
