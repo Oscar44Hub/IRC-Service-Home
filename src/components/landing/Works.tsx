@@ -122,8 +122,8 @@ export default function Works() {
 
         <div
           ref={trackRef}
-          className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory"
-          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+          className="flex gap-6 pb-4"
+          style={{ overflowX: "scroll", scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
           {cards.map((card) => (
             <div
