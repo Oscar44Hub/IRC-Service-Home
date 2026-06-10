@@ -1,21 +1,21 @@
 import { useState, useEffect, useCallback } from "react";
 import { X, ChevronLeft, ChevronRight, Images } from "lucide-react";
 
-import f1 from "@/assets/chalet/foto (1).jpeg";
-import f2 from "@/assets/chalet/foto (2).jpeg";
-import f3 from "@/assets/chalet/foto (3).jpeg";
-import f4 from "@/assets/chalet/foto (4).jpeg";
-import f5 from "@/assets/chalet/foto (5).jpeg";
-import f6 from "@/assets/chalet/foto (6).jpeg";
-import f7 from "@/assets/chalet/foto (7).jpeg";
-import f8 from "@/assets/chalet/foto (8).jpeg";
-import f9 from "@/assets/chalet/foto (9).jpeg";
-import f10 from "@/assets/chalet/foto (10).jpeg";
-import f11 from "@/assets/chalet/foto (11).jpeg";
-import f12 from "@/assets/chalet/foto (12).jpeg";
-import f13 from "@/assets/chalet/foto (13).jpeg";
-import f14 from "@/assets/chalet/foto (14).jpeg";
-import f15 from "@/assets/chalet/foto (15).jpeg";
+import f1 from "@/assets/chalet/foto-1.jpeg";
+import f2 from "@/assets/chalet/foto-2.jpeg";
+import f3 from "@/assets/chalet/foto-3.jpeg";
+import f4 from "@/assets/chalet/foto-4.jpeg";
+import f5 from "@/assets/chalet/foto-5.jpeg";
+import f6 from "@/assets/chalet/foto-6.jpeg";
+import f7 from "@/assets/chalet/foto-7.jpeg";
+import f8 from "@/assets/chalet/foto-8.jpeg";
+import f9 from "@/assets/chalet/foto-9.jpeg";
+import f10 from "@/assets/chalet/foto-10.jpeg";
+import f11 from "@/assets/chalet/foto-11.jpeg";
+import f12 from "@/assets/chalet/foto-12.jpeg";
+import f13 from "@/assets/chalet/foto-13.jpeg";
+import f14 from "@/assets/chalet/foto-14.jpeg";
+import f15 from "@/assets/chalet/foto-15.jpeg";
 
 const photos = [f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f11,f12,f13,f14,f15];
 const totalPhotos = photos.length;
