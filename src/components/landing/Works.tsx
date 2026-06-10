@@ -1,17 +1,9 @@
 import { useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, Play } from "lucide-react";
+import ApartamentoGallery from "./ApartamentoGallery";
+import video1 from "@/assets/video-1.mp4";
 
-interface VideoItem {
-  src: string;
-  title: string;
-  poster?: string;
-}
-
-const videos: VideoItem[] = [
-  // Los vídeos se añadirán aquí
-];
-
-function VideoCard({ video }: { video: VideoItem }) {
+function VideoCard({ src, title }: { src: string; title: string }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(false);
 
@@ -28,15 +20,19 @@ function VideoCard({ video }: { video: VideoItem }) {
   };
 
   return (
-    <div className="relative flex-shrink-0 w-[320px] md:w-[400px] group cursor-pointer" onClick={handleClick}>
-      <div className="relative overflow-hidden aspect-video bg-surface-dark">
+    <>
+      <div
+        className="relative cursor-pointer group overflow-hidden aspect-[4/3] bg-surface-dark"
+        onClick={handleClick}
+      >
         <video
           ref={videoRef}
-          src={video.src}
-          poster={video.poster}
+          src={src}
           playsInline
           onEnded={() => setPlaying(false)}
-          className={`w-full h-full object-cover transition-all duration-500 ${playing ? "grayscale-0" : "grayscale"}`}
+          className={`w-full h-full object-cover transition-all duration-500 ${
+            playing ? "grayscale-0" : "grayscale"
+          }`}
         />
         {!playing && (
           <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/20 transition-colors">
@@ -47,11 +43,23 @@ function VideoCard({ video }: { video: VideoItem }) {
         )}
       </div>
       <div className="mt-4 px-1">
-        <h3 className="font-display font-semibold text-base leading-snug">{video.title}</h3>
+        <h3 className="font-display font-semibold text-base leading-snug">{title}</h3>
       </div>
-    </div>
+    </>
   );
 }
+
+const cards = [
+  {
+    id: "hld",
+    component: <VideoCard src={video1} title="HLD Store Torrejón" />,
+  },
+  {
+    id: "apartamento",
+    component: <ApartamentoGallery />,
+  },
+  // Aquí se añadirán los proyectos 3 y 4
+];
 
 export default function Works() {
   const trackRef = useRef<HTMLDivElement>(null);
@@ -59,10 +67,8 @@ export default function Works() {
   const scroll = (dir: "left" | "right") => {
     const track = trackRef.current;
     if (!track) return;
-    track.scrollBy({ left: dir === "right" ? 440 : -440, behavior: "smooth" });
+    track.scrollBy({ left: dir === "right" ? 460 : -460, behavior: "smooth" });
   };
-
-  if (videos.length === 0) return null;
 
   return (
     <section id="trabajos" className="py-24 md:py-32">
@@ -94,28 +100,25 @@ export default function Works() {
 
         <div
           ref={trackRef}
-          className="flex gap-6 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory"
+          className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory"
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
-          {videos.map((v, i) => (
-            <div key={i} className="snap-start">
-              <VideoCard video={v} />
+          {cards.map((card) => (
+            <div
+              key={card.id}
+              className="flex-shrink-0 w-[calc(50%-12px)] min-w-[300px] snap-start"
+            >
+              {card.component}
             </div>
           ))}
         </div>
 
         {/* Mobile arrows */}
         <div className="flex md:hidden items-center justify-center gap-3 mt-6">
-          <button
-            onClick={() => scroll("left")}
-            className="h-11 w-11 grid place-items-center border border-hairline hover:bg-surface-alt transition-colors"
-          >
+          <button onClick={() => scroll("left")} className="h-11 w-11 grid place-items-center border border-hairline hover:bg-surface-alt transition-colors">
             <ChevronLeft className="h-5 w-5" />
           </button>
-          <button
-            onClick={() => scroll("right")}
-            className="h-11 w-11 grid place-items-center border border-hairline hover:bg-surface-alt transition-colors"
-          >
+          <button onClick={() => scroll("right")} className="h-11 w-11 grid place-items-center border border-hairline hover:bg-surface-alt transition-colors">
             <ChevronRight className="h-5 w-5" />
           </button>
         </div>
