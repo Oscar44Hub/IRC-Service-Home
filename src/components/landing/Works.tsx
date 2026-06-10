@@ -2,6 +2,7 @@ import { useRef, useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Play, X } from "lucide-react";
 import ApartamentoGallery from "./ApartamentoGallery";
 import video1 from "@/assets/video-1.mp4";
+import video2 from "@/assets/video-2.mp4";
 
 function VideoModal({ src, title, onClose }: { src: string; title: string; onClose: () => void }) {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -75,7 +76,11 @@ const cards = [
     id: "apartamento",
     component: <ApartamentoGallery />,
   },
-  // Aquí se añadirán los proyectos 3 y 4
+  {
+    id: "cataluna",
+    component: <VideoCard src={video2} title="Reforma Piso Parque Cataluña, Torrejón" />,
+  },
+  // Aquí se añadirá el proyecto 4
 ];
 
 export default function Works() {
