@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight, Play, X } from "lucide-react";
+import { Play, X } from "lucide-react";
 import ApartamentoGallery from "./ApartamentoGallery";
 import video1 from "@/assets/video-1.mp4";
 import video2 from "@/assets/video-2.mp4";
@@ -84,65 +84,22 @@ const cards = [
 ];
 
 export default function Works() {
-  const trackRef = useRef<HTMLDivElement>(null);
-
-  const scroll = (dir: "left" | "right") => {
-    const track = trackRef.current;
-    if (!track) return;
-    track.scrollBy({ left: dir === "right" ? 460 : -460, behavior: "smooth" });
-  };
-
   return (
     <section id="trabajos" className="py-24 md:py-32">
       <div className="container-edge">
-        <div className="flex items-end justify-between mb-12">
-          <div>
-            <div className="eyebrow mb-4">Nuestros trabajos</div>
-            <h2 className="font-display text-3xl md:text-5xl leading-tight">
-              Resultados que hablan<br />por sí solos.
-            </h2>
-          </div>
-          <div className="hidden md:flex items-center gap-2">
-            <button
-              onClick={() => scroll("left")}
-              className="h-11 w-11 grid place-items-center border border-hairline hover:bg-surface-alt transition-colors"
-              aria-label="Anterior"
-            >
-              <ChevronLeft className="h-5 w-5" />
-            </button>
-            <button
-              onClick={() => scroll("right")}
-              className="h-11 w-11 grid place-items-center border border-hairline hover:bg-surface-alt transition-colors"
-              aria-label="Siguiente"
-            >
-              <ChevronRight className="h-5 w-5" />
-            </button>
-          </div>
+        <div className="mb-12">
+          <div className="eyebrow mb-4">Nuestros trabajos</div>
+          <h2 className="font-display text-3xl md:text-5xl leading-tight">
+            Resultados que hablan<br />por sí solos.
+          </h2>
         </div>
 
-        <div
-          ref={trackRef}
-          className="flex gap-6 pb-4"
-          style={{ overflowX: "scroll", scrollbarWidth: "none", msOverflowStyle: "none" }}
-        >
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
           {cards.map((card) => (
-            <div
-              key={card.id}
-              className="flex-shrink-0 w-[calc(50%-12px)] min-w-[300px] snap-start"
-            >
+            <div key={card.id}>
               {card.component}
             </div>
           ))}
-        </div>
-
-        {/* Mobile arrows */}
-        <div className="flex md:hidden items-center justify-center gap-3 mt-6">
-          <button onClick={() => scroll("left")} className="h-11 w-11 grid place-items-center border border-hairline hover:bg-surface-alt transition-colors">
-            <ChevronLeft className="h-5 w-5" />
-          </button>
-          <button onClick={() => scroll("right")} className="h-11 w-11 grid place-items-center border border-hairline hover:bg-surface-alt transition-colors">
-            <ChevronRight className="h-5 w-5" />
-          </button>
         </div>
       </div>
     </section>
