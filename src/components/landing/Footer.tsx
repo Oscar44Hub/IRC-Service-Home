@@ -1,12 +1,12 @@
 import { PHONE, PHONE_TEL, EMAIL, WEBSITE, ADDRESS, COMPANY } from "@/lib/contact";
-import logo from "@/assets/logoIRC.png";
+import logo from "@/assets/logoIRC-white.png";
 
 export default function Footer() {
   return (
     <footer className="bg-surface-dark text-surface-dark-foreground">
       <div className="container-edge py-16 grid md:grid-cols-12 gap-10">
         <div className="md:col-span-5">
-          <img src={logo} alt="IRC Service" className="h-12 w-auto brightness-0 invert" />
+          <img src={logo} alt="IRC Service" className="h-12 w-auto" />
           <p className="mt-5 text-white/70 max-w-sm leading-relaxed text-sm">
             Reformas integrales con garantía en Torrejón de Ardoz y toda la Comunidad de Madrid.
           </p>
