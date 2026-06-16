@@ -1,5 +1,5 @@
 import { PHONE, PHONE_TEL, EMAIL, WEBSITE, ADDRESS, COMPANY } from "@/lib/contact";
-import logo from "@/assets/logo.svg";
+import logo from "@/assets/logoIRC.png";
 
 export default function Footer() {
   return (

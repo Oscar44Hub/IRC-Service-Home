@@ -1,6 +1,6 @@
 import { Phone } from "lucide-react";
 import { PHONE, PHONE_TEL } from "@/lib/contact";
-import logoImg from "@/assets/logo.svg";
+import logoImg from "@/assets/logoIRC.png";
 
 const links = [
   { label: "Servicios", href: "#servicios" },
