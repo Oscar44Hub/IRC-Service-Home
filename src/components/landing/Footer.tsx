@@ -1,4 +1,4 @@
-import { PHONE, PHONE_TEL, EMAIL, WEBSITE, ADDRESS, COMPANY } from "@/lib/contact";
+import { PHONE, PHONE_TEL, EMAIL, WEBSITE, ADDRESS, ADDRESS_CITY, COMPANY } from "@/lib/contact";
 import logo from "@/assets/logoIRC-white.png";
 
 export default function Footer() {
@@ -16,7 +16,7 @@ export default function Footer() {
           <ul className="space-y-2 text-sm">
             <li><a href={`tel:${PHONE_TEL}`} className="hover:underline">{PHONE}</a></li>
             <li><a href={`mailto:${EMAIL}`} className="hover:underline">{EMAIL}</a></li>
-            <li>{ADDRESS}</li>
+            <li>{ADDRESS}<br />{ADDRESS_CITY}</li>
             <li><a href={`https://${WEBSITE}`} className="hover:underline">{WEBSITE}</a></li>
           </ul>
         </div>
@@ -34,9 +34,9 @@ export default function Footer() {
         <div className="container-edge py-6 flex flex-wrap items-center justify-between gap-3 text-xs text-white/50">
           <span>© {new Date().getFullYear()} {COMPANY}. Todos los derechos reservados.</span>
           <span className="flex gap-5">
-            <a href="#" className="hover:text-white/80">Aviso legal</a>
-            <a href="#" className="hover:text-white/80">Privacidad</a>
-            <a href="#" className="hover:text-white/80">Cookies</a>
+            <a href="/aviso-legal" className="hover:text-white/80">Aviso legal</a>
+            <a href="/privacidad" className="hover:text-white/80">Privacidad</a>
+            <a href="/cookies" className="hover:text-white/80">Cookies</a>
           </span>
         </div>
       </div>

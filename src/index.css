@@ -87,3 +87,53 @@
     to { opacity: 1; transform: translateY(0); }
   }
 }
+
+/* Tipografía de las páginas legales (aviso legal, privacidad, cookies). */
+@layer components {
+  .legal-prose h2 {
+    @apply font-display text-xl md:text-2xl leading-snug mt-12 mb-4 first:mt-0;
+  }
+  .legal-prose h3 {
+    @apply font-display text-base font-semibold mt-8 mb-3;
+  }
+  .legal-prose p {
+    @apply text-[15px] leading-relaxed text-muted-foreground mb-4;
+  }
+  .legal-prose ul {
+    @apply mb-5 space-y-2;
+  }
+  .legal-prose li {
+    @apply text-[15px] leading-relaxed text-muted-foreground pl-5 relative;
+  }
+  .legal-prose li::before {
+    content: "";
+    @apply absolute left-0 top-[0.65em] h-1 w-1 bg-foreground/40;
+  }
+  .legal-prose strong {
+    @apply text-foreground font-semibold;
+  }
+  .legal-prose a {
+    @apply text-foreground underline underline-offset-4 hover:opacity-70 transition-opacity;
+  }
+  .legal-prose table {
+    @apply w-full text-left text-sm my-6 border-collapse;
+  }
+  .legal-prose th {
+    @apply border-b border-hairline py-3 pr-4 font-medium text-xs uppercase tracking-wider text-muted-foreground align-top;
+  }
+  .legal-prose td {
+    @apply border-b border-hairline py-3 pr-4 text-muted-foreground align-top leading-relaxed;
+  }
+  .legal-prose .dl {
+    @apply border border-hairline divide-y divide-[hsl(var(--hairline))] my-6;
+  }
+  .legal-prose .dl > div {
+    @apply flex flex-col sm:flex-row gap-1 sm:gap-6 px-5 py-3.5;
+  }
+  .legal-prose .dl dt {
+    @apply text-xs uppercase tracking-wider text-muted-foreground sm:w-44 shrink-0 pt-0.5;
+  }
+  .legal-prose .dl dd {
+    @apply m-0 text-[15px] text-foreground;
+  }
+}

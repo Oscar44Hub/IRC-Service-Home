@@ -60,11 +60,13 @@
       esos rastreadores no ejecutan JavaScript y este bloque sí está en el HTML.
 
       PENDIENTE DE COMPLETAR POR IRC SERVICE:
-        · streetAddress y postalCode reales
-        · "geo" exacto (copiar del pin de Google Business Profile)
-        · "sameAs": URLs de Google Business Profile, Instagram, Facebook, LinkedIn
-        · "priceRange" (p. ej. "€€") si se quiere mostrar franja de precio
-      Deben coincidir EXACTAMENTE con la ficha de Google Business Profile (NAP).
+        · "geo": latitud y longitud exactas. Se copian del pin de la ficha de
+          Google Business Profile; no se ponen a ojo. Va dentro del nodo del
+          negocio, junto a "address".
+        · "sameAs": URLs de Google Business Profile, Instagram, Facebook, LinkedIn.
+        · "priceRange" (p. ej. "€€") si se quiere mostrar franja de precio.
+      El nombre, la dirección y el teléfono deben coincidir carácter a carácter
+      con la ficha de Google Business Profile (lo que en SEO local se llama NAP).
     -->
     <script type="application/ld+json">
     {
@@ -88,14 +90,11 @@
           },
           "address": {
             "@type": "PostalAddress",
+            "streetAddress": "Calle Invierno 2, Nave 25 (Polígono Industrial Las Monjas)",
+            "postalCode": "28850",
             "addressLocality": "Torrejón de Ardoz",
             "addressRegion": "Comunidad de Madrid",
             "addressCountry": "ES"
-          },
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 40.4553,
-            "longitude": -3.4796
           },
           "openingHoursSpecification": [
             {

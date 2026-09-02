@@ -1,0 +1,5 @@
+# Las rutas de la aplicación (/aviso-legal, /privacidad, /cookies) las resuelve
+# React Router en el navegador. Sin esta regla, entrar directamente a una de
+# ellas —o que Google la rastree— devuelve 404 en un hosting estático.
+# Válido para Netlify y Cloudflare Pages.
+/*    /index.html   200
