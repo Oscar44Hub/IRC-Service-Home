@@ -15,7 +15,7 @@ export default function Header() {
     <header className="fixed top-0 inset-x-0 z-50 bg-background/85 backdrop-blur border-b border-hairline">
       <div className="container-edge flex items-center justify-between h-16">
         <a href="#top" className="flex items-center">
-          <img src={logoImg} alt="IRC Service" className="h-12 w-12 object-contain" />
+          <img src={logoImg} alt="IRC Service · reformas integrales en Torrejón de Ardoz y Madrid" width={256} height={256} className="h-12 w-12 object-contain" />
         </a>
         <nav className="hidden md:flex items-center gap-8">
           {links.map((l) => (

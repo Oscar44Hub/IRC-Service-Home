@@ -68,7 +68,7 @@ function Lightbox({ startIndex, onClose }: { startIndex: number; onClose: () => 
         <div className="flex gap-2 justify-center">
           {photos.map((p, i) => (
             <button key={i} onClick={() => setCurrent(i)} className={`flex-shrink-0 h-14 w-14 overflow-hidden transition-all ${i === current ? "ring-2 ring-white opacity-100" : "opacity-40 hover:opacity-70"}`}>
-              <img src={p} alt="" className="w-full h-full object-cover" />
+              <img src={p} alt="" loading="lazy" decoding="async" className="w-full h-full object-cover" />
             </button>
           ))}
         </div>
@@ -82,23 +82,32 @@ export default function ChaletGallery() {
 
   return (
     <>
-      <div className="relative cursor-pointer group overflow-hidden" onClick={() => setLightboxOpen(true)}>
+      <button
+        type="button"
+        aria-label={`Ver las ${totalPhotos} fotos de la reforma del Chalet Soto de Torrejón de Ardoz`}
+        className="relative block w-full text-left cursor-pointer group overflow-hidden"
+        onClick={() => setLightboxOpen(true)}
+      >
         <div className="aspect-[4/3] overflow-hidden bg-surface-alt">
           <img
             src={photos[0]}
-            alt="Chalet Soto Torrejón — portada"
+            alt="Reforma integral de chalet en la urbanización Soto de Torrejón de Ardoz por IRC Service"
+            width={1200}
+            height={1600}
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105"
           />
         </div>
-        <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors flex items-center justify-center">
-          <div className="text-center text-white">
-            <div className="h-16 w-16 rounded-full bg-white/90 flex items-center justify-center mx-auto shadow-lg group-hover:scale-110 transition-transform mb-3">
+        <span className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+          <span className="text-center text-white">
+            <span className="h-16 w-16 rounded-full bg-white/90 flex items-center justify-center mx-auto shadow-lg group-hover:scale-110 transition-transform mb-3">
               <Images className="h-7 w-7 text-foreground" />
-            </div>
-            <span className="text-sm font-medium tracking-wider">Ver {totalPhotos} fotos</span>
-          </div>
-        </div>
-      </div>
+            </span>
+            <span className="block text-sm font-medium tracking-wider">Ver {totalPhotos} fotos</span>
+          </span>
+        </span>
+      </button>
       <div className="mt-4 px-1">
         <h3 className="font-display font-semibold text-base leading-snug">Chalet Soto Torrejón</h3>
       </div>

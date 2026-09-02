@@ -7,13 +7,17 @@ export default function Hero() {
     <section id="top" className="relative pt-16">
       <div className="container-edge pt-16 md:pt-24 pb-16 md:pb-24 grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
         <div className="lg:col-span-6 fade-up">
-          <div className="eyebrow mb-6">Reformas integrales · Torrejón de Ardoz</div>
+          {/* La palabra clave principal va dentro del <h1>: el "eyebrow" es un <span>
+              del propio encabezado, así que el diseño no cambia pero el H1 sí posiciona. */}
           <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl leading-[1.05] text-foreground">
+            <span className="eyebrow block mb-6">Reformas integrales en Torrejón de Ardoz y Madrid</span>
             Reformamos tu hogar con<br />
             <span className="italic">garantía</span> y plazos cumplidos.
           </h1>
           <p className="mt-6 text-lg text-muted-foreground max-w-xl leading-relaxed">
-            Equipo propio especializado en reformas integrales en Madrid. Acabados impecables, presupuesto cerrado y entrega en la fecha pactada.
+            Empresa de reformas integrales en Torrejón de Ardoz con equipo propio. Reformamos
+            viviendas, cocinas, baños y locales comerciales en Madrid y el Corredor del Henares:
+            acabados impecables, presupuesto cerrado y entrega en la fecha pactada.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
@@ -51,9 +55,11 @@ export default function Hero() {
           <div className="aspect-[4/5] overflow-hidden bg-surface-alt">
             <img
               src={heroImg}
-              alt="Salón reformado por IRC Service en Madrid con acabados impecables"
+              alt="Salón de vivienda reformada por IRC Service en Torrejón de Ardoz, Madrid, con acabados impecables"
               width={1920}
               height={1080}
+              fetchPriority="high"
+              decoding="async"
               className="w-full h-full object-cover grayscale-[20%]"
             />
           </div>

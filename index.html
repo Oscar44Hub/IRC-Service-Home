@@ -3,48 +3,306 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>IRC Service · Reformas integrales con garantía en Torrejón y Madrid</title>
-    <meta name="description" content="Reformas integrales con garantía en Torrejón de Ardoz y Madrid. 4,9/5 en Google con 99 reseñas. Plazos cumplidos, acabados impecables, presupuesto cerrado.">
+
+    <title>Reformas integrales en Torrejón de Ardoz y Madrid | IRC Service</title>
+    <meta name="description" content="Empresa de reformas integrales en Torrejón de Ardoz y Madrid. Presupuesto cerrado, plazos cumplidos y garantía por escrito. 4,9/5 con 99 reseñas en Google. Visita y presupuesto gratis.">
     <meta name="author" content="IRC Service" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <link rel="canonical" href="https://reformasentorrejon.com/" />
 
+    <!-- Geolocalización (SEO local) -->
+    <meta name="geo.region" content="ES-MD" />
+    <meta name="geo.placename" content="Torrejón de Ardoz, Comunidad de Madrid" />
+    <meta name="geo.position" content="40.4553;-3.4796" />
+    <meta name="ICBM" content="40.4553, -3.4796" />
+
+    <!-- Iconos y color de marca -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#111111" />
+
+    <!-- Tipografía: preconnect + carga no bloqueante (antes era un @import en CSS que bloqueaba el render) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,600;1,700&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,600;1,700&display=swap" />
+    </noscript>
+
+    <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="IRC Service" />
+    <meta property="og:url" content="https://reformasentorrejon.com/" />
+    <meta property="og:title" content="Reformas integrales en Torrejón de Ardoz y Madrid | IRC Service" />
+    <meta property="og:description" content="Empresa de reformas integrales en Torrejón de Ardoz y Madrid. Presupuesto cerrado, plazos cumplidos y garantía por escrito. 4,9/5 con 99 reseñas en Google." />
+    <meta property="og:image" content="https://reformasentorrejon.com/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Salón de vivienda reformada por IRC Service en Torrejón de Ardoz" />
 
+    <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Reformas integrales en Torrejón de Ardoz y Madrid | IRC Service" />
+    <meta name="twitter:description" content="Empresa de reformas integrales en Torrejón de Ardoz y Madrid. Presupuesto cerrado, plazos cumplidos y garantía por escrito. 4,9/5 con 99 reseñas en Google." />
+    <meta name="twitter:image" content="https://reformasentorrejon.com/og-image.jpg" />
 
+    <!--
+      Datos estructurados (Schema.org).
+      Sirven para los rich results de Google Y para que los motores generativos
+      (ChatGPT, Perplexity, Gemini, Claude) entiendan y citen el negocio, ya que
+      esos rastreadores no ejecutan JavaScript y este bloque sí está en el HTML.
+
+      PENDIENTE DE COMPLETAR POR IRC SERVICE:
+        · streetAddress y postalCode reales
+        · "geo" exacto (copiar del pin de Google Business Profile)
+        · "sameAs": URLs de Google Business Profile, Instagram, Facebook, LinkedIn
+        · "priceRange" (p. ej. "€€") si se quiere mostrar franja de precio
+      Deben coincidir EXACTAMENTE con la ficha de Google Business Profile (NAP).
+    -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "GeneralContractor",
-      "name": "IRC Service",
-      "image": "https://reformasentorrejon.com/og-image.jpg",
-      "url": "https://reformasentorrejon.com",
-      "telephone": "+34661309466",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Torrejón de Ardoz",
-        "addressRegion": "Madrid",
-        "addressCountry": "ES"
-      },
-      "areaServed": "Comunidad de Madrid",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "reviewCount": "99"
-      }
+      "@graph": [
+        {
+          "@type": ["GeneralContractor", "HomeAndConstructionBusiness", "LocalBusiness"],
+          "@id": "https://reformasentorrejon.com/#organizacion",
+          "name": "IRC Service",
+          "alternateName": "IRC Service Reformas",
+          "description": "Empresa de reformas integrales con sede en Torrejón de Ardoz. Reformas de viviendas, cocinas, baños y locales comerciales en Madrid y el Corredor del Henares, con presupuesto cerrado, plazos pactados y garantía por escrito.",
+          "url": "https://reformasentorrejon.com/",
+          "telephone": "+34661309466",
+          "email": "info@reformasentorrejon.com",
+          "image": "https://reformasentorrejon.com/og-image.jpg",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://reformasentorrejon.com/logo-irc-512.png",
+            "width": 512,
+            "height": 512
+          },
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Torrejón de Ardoz",
+            "addressRegion": "Comunidad de Madrid",
+            "addressCountry": "ES"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 40.4553,
+            "longitude": -3.4796
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+              "opens": "09:00",
+              "closes": "19:00"
+            }
+          ],
+          "currenciesAccepted": "EUR",
+          "areaServed": [
+            { "@type": "City", "name": "Torrejón de Ardoz" },
+            { "@type": "City", "name": "Alcalá de Henares" },
+            { "@type": "City", "name": "San Fernando de Henares" },
+            { "@type": "City", "name": "Coslada" },
+            { "@type": "City", "name": "Madrid" },
+            { "@type": "City", "name": "Mejorada del Campo" },
+            { "@type": "City", "name": "Velilla de San Antonio" },
+            { "@type": "City", "name": "Paracuellos del Jarama" },
+            { "@type": "City", "name": "Loeches" },
+            { "@type": "City", "name": "Rivas-Vaciamadrid" },
+            { "@type": "AdministrativeArea", "name": "Comunidad de Madrid" }
+          ],
+          "serviceArea": {
+            "@type": "GeoCircle",
+            "geoMidpoint": {
+              "@type": "GeoCoordinates",
+              "latitude": 40.4553,
+              "longitude": -3.4796
+            },
+            "geoRadius": 35000
+          },
+          "knowsLanguage": "es-ES",
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "99",
+            "bestRating": "5",
+            "worstRating": "1"
+          },
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Servicios de reforma de IRC Service",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Reformas integrales de vivienda",
+                  "description": "Transformamos viviendas completas: distribución, instalaciones de fontanería y electricidad, acabados y decoración llave en mano.",
+                  "serviceType": "Reforma integral",
+                  "areaServed": { "@type": "AdministrativeArea", "name": "Comunidad de Madrid" },
+                  "provider": { "@id": "https://reformasentorrejon.com/#organizacion" }
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Reforma de cocinas y baños",
+                  "description": "Reformas exprés de cocinas y baños con materiales de primeras marcas y plazos ajustados.",
+                  "serviceType": "Reforma de cocina y baño",
+                  "areaServed": { "@type": "AdministrativeArea", "name": "Comunidad de Madrid" },
+                  "provider": { "@id": "https://reformasentorrejon.com/#organizacion" }
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Reforma de locales comerciales",
+                  "description": "Acondicionamiento de locales desde cero: gestión de licencias, obra y diseño adaptado al negocio.",
+                  "serviceType": "Reforma de local comercial",
+                  "areaServed": { "@type": "AdministrativeArea", "name": "Comunidad de Madrid" },
+                  "provider": { "@id": "https://reformasentorrejon.com/#organizacion" }
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Pintura y acabados",
+                  "description": "Trabajos parciales de pintura, alicatado, suelos y carpintería con la misma exigencia que una reforma integral.",
+                  "serviceType": "Pintura y acabados",
+                  "areaServed": { "@type": "AdministrativeArea", "name": "Comunidad de Madrid" },
+                  "provider": { "@id": "https://reformasentorrejon.com/#organizacion" }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://reformasentorrejon.com/#website",
+          "url": "https://reformasentorrejon.com/",
+          "name": "IRC Service · Reformas en Torrejón de Ardoz y Madrid",
+          "inLanguage": "es-ES",
+          "publisher": { "@id": "https://reformasentorrejon.com/#organizacion" }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://reformasentorrejon.com/#webpage",
+          "url": "https://reformasentorrejon.com/",
+          "name": "Reformas integrales en Torrejón de Ardoz y Madrid | IRC Service",
+          "description": "Empresa de reformas integrales en Torrejón de Ardoz y Madrid. Presupuesto cerrado, plazos cumplidos y garantía por escrito.",
+          "inLanguage": "es-ES",
+          "isPartOf": { "@id": "https://reformasentorrejon.com/#website" },
+          "about": { "@id": "https://reformasentorrejon.com/#organizacion" },
+          "primaryImageOfPage": "https://reformasentorrejon.com/og-image.jpg"
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://reformasentorrejon.com/#faq",
+          "isPartOf": { "@id": "https://reformasentorrejon.com/#webpage" },
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "¿Qué incluye la garantía de IRC Service?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Toda nuestra obra se entrega con garantía por escrito sobre los trabajos ejecutados. Si aparece cualquier incidencia derivada de la reforma, volvemos a solucionarlo sin coste para ti."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Cómo aseguráis los plazos de entrega?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Antes de empezar firmamos un calendario detallado por fases. Contamos con equipo propio y coordinamos los gremios para cumplir la fecha de entrega pactada."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿El presupuesto es cerrado o puede subir?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "El presupuesto es cerrado. Detallamos cada partida por escrito y solo se modifica si tú decides añadir trabajos extra durante la obra."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Os encargáis de las licencias y permisos?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sí. Nos encargamos de la gestión de licencias y permisos necesarios ante el ayuntamiento y la comunidad de propietarios."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Podéis reformar con la vivienda habitada?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sí, somos especialmente cuidadosos con la limpieza y el orden. Planificamos la obra por zonas para que puedas seguir viviendo en casa siempre que sea posible."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Cuánto tarda una reforma integral?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Una reforma integral de una vivienda media suele ejecutarse entre 6 y 10 semanas, según la superficie y los acabados. Te damos un plazo exacto en la visita."
+              }
+            }
+          ]
+        }
+      ]
     }
     </script>
-    <meta property="og:title" content="IRC Service · Reformas integrales con garantía en Torrejón y Madrid">
-    <meta name="twitter:title" content="IRC Service · Reformas integrales con garantía en Torrejón y Madrid">
-    <meta property="og:description" content="Reformas integrales con garantía en Torrejón de Ardoz y Madrid. 4,9/5 en Google con 99 reseñas. Plazos cumplidos, acabados impecables, presupuesto cerrado.">
-    <meta name="twitter:description" content="Reformas integrales con garantía en Torrejón de Ardoz y Madrid. 4,9/5 en Google con 99 reseñas. Plazos cumplidos, acabados impecables, presupuesto cerrado.">
-    <meta property="og:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/62ae61fd-d3bd-4463-9049-ec789d10fea7">
-    <meta name="twitter:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/62ae61fd-d3bd-4463-9049-ec789d10fea7">
   </head>
 
   <body>
     <div id="root"></div>
+
+    <!--
+      Contenido de respaldo para rastreadores que no ejecutan JavaScript
+      (GPTBot, PerplexityBot, ClaudeBot y buena parte de los bots de IA).
+      Sin esto, para ellos la página está vacía.
+    -->
+    <noscript>
+      <h1>IRC Service · Reformas integrales en Torrejón de Ardoz y Madrid</h1>
+      <p>
+        IRC Service es una empresa de reformas integrales con sede en Torrejón de Ardoz
+        (Comunidad de Madrid). Reformamos viviendas completas, cocinas, baños y locales
+        comerciales con equipo propio, presupuesto cerrado, plazos pactados por escrito y
+        garantía post-obra. Valoración de 4,9 sobre 5 con 99 reseñas verificadas en Google.
+      </p>
+      <h2>Servicios</h2>
+      <ul>
+        <li><strong>Reformas integrales:</strong> distribución, instalaciones, acabados y decoración llave en mano.</li>
+        <li><strong>Cocinas y baños:</strong> reformas exprés con materiales de primeras marcas.</li>
+        <li><strong>Locales comerciales:</strong> licencias, obra y diseño adaptado al negocio.</li>
+        <li><strong>Pintura y acabados:</strong> pintura, alicatado, suelos y carpintería.</li>
+      </ul>
+      <h2>Zonas donde trabajamos</h2>
+      <p>
+        Torrejón de Ardoz, Alcalá de Henares, San Fernando de Henares, Coslada, Madrid capital,
+        Mejorada del Campo, Velilla de San Antonio, Paracuellos del Jarama, Loeches y
+        Rivas-Vaciamadrid.
+      </p>
+      <h2>Contacto</h2>
+      <p>
+        Teléfono: <a href="tel:+34661309466">661 30 94 66</a> ·
+        Email: <a href="mailto:info@reformasentorrejon.com">info@reformasentorrejon.com</a> ·
+        Horario: lunes a viernes de 9:00 a 19:00.
+      </p>
+    </noscript>
+
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
