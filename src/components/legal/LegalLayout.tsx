@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { ArrowLeft } from "lucide-react";
 import Header from "@/components/landing/Header";
 import Footer from "@/components/landing/Footer";
-import { LEGAL, faltanDatosLegales } from "@/lib/legal";
+import { LEGAL, datosLegalesPendientes } from "@/lib/legal";
 
 type Props = {
   titulo: string;
@@ -18,6 +18,8 @@ type Props = {
  * la LSSI-CE y el RGPD, y Google las lee como señal de fiabilidad).
  */
 export default function LegalLayout({ titulo, descripcion, children }: Props) {
+  const pendientes = datosLegalesPendientes();
+
   useEffect(() => {
     document.title = `${titulo} | ${LEGAL.nombreComercial}`;
 
@@ -59,12 +61,17 @@ export default function LegalLayout({ titulo, descripcion, children }: Props) {
             Última actualización: {LEGAL.ultimaActualizacion}
           </p>
 
-          {faltanDatosLegales() && (
+          {pendientes.length > 0 && (
             <div className="mt-8 border border-hairline bg-surface-alt p-5 text-sm leading-relaxed">
-              <strong className="font-display">Borrador pendiente de datos.</strong> Este texto
-              todavía contiene campos sin rellenar (razón social, NIF y proveedor de alojamiento).
-              Complétalos en <code className="text-xs">src/lib/legal.ts</code> antes de publicar la
-              web: un aviso legal incompleto no cumple el artículo 10 de la LSSI-CE.
+              <strong className="font-display">Borrador pendiente de datos.</strong> Falta por
+              confirmar {pendientes.length === 1 ? pendientes[0] : (
+                <>
+                  {pendientes.slice(0, -1).join(", ")} y {pendientes[pendientes.length - 1]}
+                </>
+              )}
+              . Complétalo en <code className="text-xs">src/lib/legal.ts</code> antes de publicar:
+              un aviso legal incompleto o con datos erróneos no cumple el artículo 10 de la
+              LSSI-CE.
             </div>
           )}
 
