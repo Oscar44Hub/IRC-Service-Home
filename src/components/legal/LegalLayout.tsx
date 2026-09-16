@@ -63,8 +63,8 @@ export default function LegalLayout({ titulo, descripcion, children }: Props) {
 
           {pendientes.length > 0 && (
             <div className="mt-8 border border-hairline bg-surface-alt p-5 text-sm leading-relaxed">
-              <strong className="font-display">Borrador pendiente de datos.</strong> Falta por
-              confirmar {pendientes.length === 1 ? pendientes[0] : (
+              <strong className="font-display">Borrador pendiente de datos.</strong> Queda por
+              confirmar: {pendientes.length === 1 ? pendientes[0] : (
                 <>
                   {pendientes.slice(0, -1).join(", ")} y {pendientes[pendientes.length - 1]}
                 </>

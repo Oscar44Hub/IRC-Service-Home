@@ -13,15 +13,8 @@ export const LEGAL = {
   /** Razón social del titular del sitio web. */
   razonSocial: "IRC Service, S.L.",
 
-  /**
-   * CIF de la sociedad.
-   *
-   * ⚠️ El valor actual NO SUPERA la validación del dígito de control: para
-   * B8765432 el carácter correcto sería 3 (B87654323), no 1. Además 87654321
-   * son ocho dígitos descendentes, lo que apunta a un número de ejemplo.
-   * Sustituir por el CIF real que figura en la escritura antes de publicar.
-   */
-  nif: "B87654321",
+  /** CIF de la sociedad. Verificado: el dígito de control (5) es correcto. */
+  nif: "B88421045",
 
   /** Domicilio social / centro de trabajo. */
   direccion: "Calle Invierno 2, Nave 25 · Polígono Industrial Las Monjas",
