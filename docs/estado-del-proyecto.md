@@ -148,10 +148,42 @@ simplemente no se muestra.
 
 ## Resumen de lo pendiente
 
-1. **Aviso por email de cada lead.** Los leads ya se guardan en Supabase, pero
-   nadie se entera de que han entrado. Hace falta un *Database Webhook* que
-   dispare al insertar y llame a un servicio de envío (Resend encaja bien y
-   tiene plan gratuito). Sin esto, hay que entrar al panel a mirar.
+1. **Aviso por email de cada lead — a medias.** Los leads se guardan, pero
+   nadie se entera de que han entrado: hay que entrar al panel a mirarlos.
+
+   El código ya está escrito y versionado en
+   `supabase/functions/aviso-lead/index.ts`. Falta montarlo:
+
+   - Cuenta en **Resend** (gratis: 3.000 emails/mes, 100/día) y clave de API.
+   - Desplegar la función desde el panel de Supabase, en Edge Functions →
+     Deploy a new function → Via Editor, pegando ese fichero. El editor del
+     panel no guarda historial: la copia buena es la del repo.
+   - Secretos de la función: `RESEND_API_KEY` y `AVISO_TOKEN` (una cadena
+     inventada, `openssl rand -hex 24`). Opcionalmente `AVISO_DESTINO` y
+     `AVISO_REMITENTE`.
+   - Database Webhook sobre `leads`, evento *Insert*, apuntando a la función,
+     con la cabecera `x-aviso-token` con el mismo token.
+
+   **Lo que lo frenó:** Resend exige un dominio verificado para enviar a
+   terceros; sin él solo deja mandar a la dirección con la que se registró la
+   cuenta. Y no había acceso al DNS de `reformasentorrejon.com`. Dos salidas:
+
+   - Verificar un subdominio de un dominio propio al que sí se tenga acceso
+     (`envios.tjsocialmedia.es`, en IONOS, o `envios.obrashub.es`, en
+     Nominalia) y avisar ya a `info@reformasentorrejon.com`. Que el remitente
+     sea el dominio de la agencia da igual: es una alerta interna, no un
+     correo al cliente final.
+   - O empezar avisando a la propia dirección de quien cree la cuenta, sin
+     tocar ningún DNS.
+
+   Pasar de una a otra es **cambiar dos secretos** en el panel: el
+   destinatario y el remitente salen de `AVISO_DESTINO` y `AVISO_REMITENTE`,
+   no del código.
+
+   Si algún día se verifica sobre `reformasentorrejon.com`, hacerlo **sobre un
+   subdominio**: el SPF del dominio raíz es `v=spf1
+   include:_spf.controldeservidor.com -all`, un rechazo duro, y su correo de
+   empresa vive en ese mismo hosting. Tocarlo puede dejarles sin correo.
 2. **Datos del Registro Mercantil** en `src/lib/legal.ts`.
 3. **Mudanza del dominio** `reformasentorrejon.com`, cuando lo decida el
    cliente.
