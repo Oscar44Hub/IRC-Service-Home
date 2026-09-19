@@ -32,7 +32,18 @@ export default function Footer() {
       </div>
       <div className="border-t border-white/10">
         <div className="container-edge py-6 flex flex-wrap items-center justify-between gap-3 text-xs text-white/50">
-          <span>© {new Date().getFullYear()} {COMPANY}. Todos los derechos reservados.</span>
+          <span>
+            © {new Date().getFullYear()} {COMPANY}. Todos los derechos reservados. - Desarrollado por{" "}
+            <a
+              href="https://www.instagram.com/tjsocialmedia.ia/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-orange-500 hover:underline"
+            >
+              · TJSocialMedIA ·
+            </a>{" "}
+            -
+          </span>
           <span className="flex gap-5">
             <a href="#" className="hover:text-white/80">Aviso legal</a>
             <a href="#" className="hover:text-white/80">Privacidad</a>

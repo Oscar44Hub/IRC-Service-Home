@@ -3,3 +3,6 @@ dist
 .env
 .env.local
 .env*.local
+
+# Demo empaquetada para el cliente: se regenera desde dist/, no versionar (52 MB)
+irc-service-demo.zip

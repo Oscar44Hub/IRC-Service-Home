@@ -10,7 +10,7 @@ export default function Hero() {
           <div className="eyebrow mb-6">Reformas integrales · Torrejón de Ardoz</div>
           <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl leading-[1.05] text-foreground">
             Reformamos tu hogar con<br />
-            <span className="italic">garantía</span> y plazos cumplidos.
+            <span className="italic">garantía</span> y cumpliendo plazos.
           </h1>
           <p className="mt-6 text-lg text-muted-foreground max-w-xl leading-relaxed">
             Equipo propio especializado en reformas integrales en Madrid. Acabados impecables, presupuesto cerrado y entrega en la fecha pactada.
