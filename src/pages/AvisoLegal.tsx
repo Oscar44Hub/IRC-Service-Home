@@ -1,5 +1,5 @@
 import LegalLayout from "@/components/legal/LegalLayout";
-import { LEGAL } from "@/lib/legal";
+import { LEGAL, publicable } from "@/lib/legal";
 import { EMAIL, PHONE, WEBSITE } from "@/lib/contact";
 
 export default function AvisoLegal() {
@@ -25,7 +25,7 @@ export default function AvisoLegal() {
         <div><dt>Teléfono</dt><dd>{PHONE}</dd></div>
         <div><dt>Correo electrónico</dt><dd><a href={`mailto:${EMAIL}`}>{EMAIL}</a></dd></div>
         <div><dt>Sitio web</dt><dd>{WEBSITE}</dd></div>
-        {LEGAL.registro && <div><dt>Datos registrales</dt><dd>{LEGAL.registro}</dd></div>}
+        {publicable(LEGAL.registro) && <div><dt>Datos registrales</dt><dd>{LEGAL.registro}</dd></div>}
       </dl>
 
       <h2>2. Objeto y ámbito de aplicación</h2>

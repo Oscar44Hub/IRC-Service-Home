@@ -18,7 +18,10 @@ type Props = {
  * la LSSI-CE y el RGPD, y Google las lee como señal de fiabilidad).
  */
 export default function LegalLayout({ titulo, descripcion, children }: Props) {
-  const pendientes = datosLegalesPendientes();
+  // El aviso de datos pendientes es una nota para quien desarrolla, no para el
+  // visitante: menciona rutas del código. Se queda en desarrollo y nunca viaja
+  // al build de producción.
+  const pendientes = import.meta.env.DEV ? datosLegalesPendientes() : [];
 
   useEffect(() => {
     document.title = `${titulo} | ${LEGAL.nombreComercial}`;

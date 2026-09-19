@@ -46,6 +46,15 @@ export const LEGAL = {
 export const DIRECCION_COMPLETA = `${LEGAL.direccion}, ${LEGAL.codigoPostal} ${LEGAL.localidad}, ${LEGAL.provincia}`;
 
 /**
+ * ¿Es este campo publicable tal cual? Un valor vacío o todavía marcado como
+ * PENDIENTE no debe llegar nunca a la página pública: se omite la fila entera
+ * antes que enseñar al visitante el hueco sin rellenar.
+ */
+export function publicable(valor: string): boolean {
+  return valor.trim() !== "" && !valor.includes("[PENDIENTE");
+}
+
+/**
  * Valida el carácter de control de un CIF español.
  * Suma los dígitos de posición par y, para los de posición impar, los duplica
  * y suma las cifras del resultado. El control es el complemento a 10 de la
