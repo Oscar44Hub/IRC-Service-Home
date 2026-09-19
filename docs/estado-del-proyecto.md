@@ -63,34 +63,42 @@ del cambio. Mientras no se haga la mudanza:
 
 Es deliberado, no un descuido. Se arregla solo cuando se mueva el dominio.
 
-## ⚠️ El formulario de contacto no funciona
-
-Esto es lo más importante que hay abierto ahora mismo.
+## El formulario de contacto y Supabase
 
 El formulario inserta en la tabla `leads` de **Supabase**
 (`src/components/landing/ContactForm.tsx`). El cliente se configura en
-`src/integrations/supabase/client.ts` a partir de dos variables de entorno:
+`src/integrations/supabase/client.ts` a partir de dos variables de entorno,
+dadas de alta en Vercel para Production y Preview:
 
 ```
-VITE_SUPABASE_URL
-VITE_SUPABASE_PUBLISHABLE_KEY
+VITE_SUPABASE_URL              https://djkohoaszrhbzvdgxpta.supabase.co
+VITE_SUPABASE_PUBLISHABLE_KEY  sb_publishable_...
 ```
 
-**No están puestas en Vercel.** Comprobado leyendo el JavaScript publicado: el
-build lleva incrustados los valores de reserva, `https://placeholder.supabase.co`
-y `placeholder-key`. Con eso el `insert` falla siempre.
+El proyecto de Supabase se creó el 19-09-2026; antes no existía, y por eso el
+formulario nunca había llegado a funcionar. El esquema de la tabla y su
+política de RLS están en `supabase/001-tabla-leads.sql`.
 
-Lo que ve el visitante: rellena el formulario, pulsa enviar y le sale
-*"No se pudo enviar tu solicitud. Inténtalo de nuevo o llámanos."* No se pierde
-en silencio, pero **el lead no llega a ninguna parte**.
+Las dos variables son **Config**, no *Secret*, y así debe ser: el prefijo
+`VITE_` las incrusta en el JavaScript que descarga cualquier visitante, o sea
+que no pueden ser secretas. No pasa nada, porque **la seguridad la da la RLS,
+no ocultar la clave**: con la publishable solo se puede insertar un lead, no
+leer los de nadie. La `service_role` no debe aparecer jamás por aquí.
 
-Para arreglarlo hacen falta las credenciales del proyecto de Supabase y darlas
-de alta en Vercel → Settings → Environment Variables, para Production. Ojo:
-Vite incrusta las variables **en tiempo de build**, así que después hay que
-volver a desplegar; no basta con guardarlas.
+### Tres trampas que ya costaron un rato
 
-Mientras tanto, las vías que sí funcionan son el teléfono y el botón de
-WhatsApp, que son enlaces directos y no dependen de nada.
+- **Vite incrusta las variables al construir**, no al cargar la página.
+  Guardarlas en Vercel no cambia nada por sí solo: hay que **redesplegar**.
+- **En el campo *Value* va solo el valor.** Pegar la línea entera del `.env`
+  deja el valor como `VITE_SUPABASE_URL=https://...`, que no es una URL válida.
+- **El nombre tiene que ser exacto.** Un `PUBLICSHABLE` en vez de
+  `PUBLISHABLE` y el código no la encuentra: cae al valor de reserva sin decir
+  nada.
+
+Ninguna de las tres puede ya tumbar el sitio: si la configuración no sirve,
+`supabase` vale `null`, la consola explica qué falla y **solo se pierde el
+formulario**. El teléfono y el WhatsApp son enlaces directos y funcionan
+siempre.
 
 ## Cómo levantarlo en local
 
@@ -140,8 +148,10 @@ simplemente no se muestra.
 
 ## Resumen de lo pendiente
 
-1. **Variables de Supabase en Vercel** — sin ellas no entra ni un lead por el
-   formulario. Es lo más urgente.
+1. **Aviso por email de cada lead.** Los leads ya se guardan en Supabase, pero
+   nadie se entera de que han entrado. Hace falta un *Database Webhook* que
+   dispare al insertar y llame a un servicio de envío (Resend encaja bien y
+   tiene plan gratuito). Sin esto, hay que entrar al panel a mirar.
 2. **Datos del Registro Mercantil** en `src/lib/legal.ts`.
 3. **Mudanza del dominio** `reformasentorrejon.com`, cuando lo decida el
    cliente.
