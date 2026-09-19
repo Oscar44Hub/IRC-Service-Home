@@ -4,6 +4,7 @@ export const WHATSAPP_URL = "https://api.whatsapp.com/send?phone=34661309466&tex
 export const EMAIL = "info@reformasentorrejon.com";
 export const WEBSITE = "reformasentorrejon.com";
 export const COMPANY = "IRC Service";
-export const ADDRESS = "Torrejón de Ardoz, Madrid";
+export const ADDRESS = "C/ Invierno 2, Nave 25 · Pol. Ind. Las Monjas";
+export const ADDRESS_CITY = "28850 Torrejón de Ardoz, Madrid";
 export const RATING = 4.9;
 export const REVIEWS = 99;

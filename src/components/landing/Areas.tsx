@@ -23,7 +23,8 @@ export default function Areas() {
             Madrid y Corredor del Henares.
           </h2>
           <p className="mt-6 text-white/70 leading-relaxed max-w-md">
-            Con sede en Torrejón de Ardoz, trabajamos en toda la Comunidad de Madrid. Si tu zona no aparece, consúltanos.
+            Con sede en Torrejón de Ardoz, hacemos reformas integrales, de cocinas, de baños y de
+            locales comerciales en toda la Comunidad de Madrid. Si tu zona no aparece, consúltanos.
           </p>
         </div>
         <div className="lg:col-span-7">

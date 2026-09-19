@@ -1,0 +1,59 @@
+# robots.txt — IRC Service · reformasentorrejon.com
+
+# --- Buscadores tradicionales ---
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# --- Motores generativos (GEO) ---
+# Permitir explícitamente el rastreo por IA para poder aparecer citados
+# en respuestas de ChatGPT, Perplexity, Claude, Gemini y Copilot.
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+# --- Resto ---
+User-agent: *
+Allow: /
+
+Sitemap: https://reformasentorrejon.com/sitemap.xml

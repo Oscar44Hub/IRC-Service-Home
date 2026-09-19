@@ -5,7 +5,7 @@ import { z } from "zod";
 import { Phone, MessageCircle, Mail, MapPin, Clock, Check, Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
-import { PHONE, PHONE_TEL, WHATSAPP_URL, EMAIL, ADDRESS } from "@/lib/contact";
+import { PHONE, PHONE_TEL, WHATSAPP_URL, EMAIL, ADDRESS, ADDRESS_CITY } from "@/lib/contact";
 
 const schema = z.object({
   nombre: z.string().trim().min(2, "Nombre demasiado corto").max(100),
@@ -88,6 +88,7 @@ export default function ContactForm() {
               <div>
                 <div className="text-xs uppercase tracking-wider text-muted-foreground">Ubicación</div>
                 <div className="font-medium">{ADDRESS}</div>
+                <div className="text-sm text-muted-foreground">{ADDRESS_CITY}</div>
               </div>
             </div>
             <div className="flex items-center gap-4">
@@ -179,7 +180,11 @@ export default function ContactForm() {
                 <label className="flex items-start gap-3 text-xs text-muted-foreground">
                   <input type="checkbox" {...register("consent")} className="mt-0.5 accent-foreground" />
                   <span>
-                    Acepto la política de privacidad y el tratamiento de mis datos para que IRC Service me contacte.
+                    Acepto la{" "}
+                    <a href="/privacidad" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-foreground">
+                      política de privacidad
+                    </a>{" "}
+                    y el tratamiento de mis datos para que IRC Service me contacte.
                   </span>
                 </label>
                 {errors.consent && <p className="text-xs text-destructive">{errors.consent.message}</p>}
