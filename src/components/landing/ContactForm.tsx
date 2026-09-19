@@ -32,6 +32,11 @@ export default function ContactForm() {
   });
 
   const onSubmit = async (values: FormValues) => {
+    if (!supabase) {
+      toast.error("No se pudo enviar tu solicitud. Inténtalo de nuevo o llámanos.");
+      return;
+    }
+
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const { error } = await (supabase as any).from("leads").insert({
       nombre: values.nombre,
