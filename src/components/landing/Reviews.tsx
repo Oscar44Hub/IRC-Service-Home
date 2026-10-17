@@ -1,40 +1,50 @@
 import { Star } from "lucide-react";
-import { RATING, REVIEWS } from "@/lib/contact";
+import { useEffect, useState } from "react";
 
-const reviews = [
-  {
-    text: "Profesionalidad de principio a fin. Cumplieron los plazos al día y los acabados son perfectos. Volvería a contar con ellos sin dudarlo.",
-    author: "Laura M.",
-    location: "Torrejón de Ardoz",
-  },
-  {
-    text: "Reformaron nuestro piso entero. Equipo educado, muy limpio y atento a cada detalle. Comunicación impecable durante toda la obra.",
-    author: "Javier R.",
-    location: "Alcalá de Henares",
-  },
-  {
-    text: "Flexibles con los cambios que pedimos sobre la marcha y siempre con buena cara. El resultado supera lo que esperábamos.",
-    author: "Marta G.",
-    location: "Madrid",
-  },
-  {
-    text: "Cocina y baño en tres semanas, sin retrasos y con un acabado impecable. Recomendados al 100%.",
-    author: "Andrés P.",
-    location: "Coslada",
-  },
-  {
-    text: "Cuidaron muchísimo la limpieza y el orden mientras vivíamos en casa durante la reforma. Muy serios y responsables.",
-    author: "Beatriz L.",
-    location: "San Fernando de Henares",
-  },
-  {
-    text: "Presupuesto cerrado y cero sorpresas. Buen trato, buen precio y trabajo bien hecho. Justo lo que buscábamos.",
-    author: "Carlos D.",
-    location: "Madrid",
-  },
+const fallbackReviews = [
+  { text: "Profesionalidad de principio a fin. Cumplieron los plazos al día y los acabados son perfectos. Volvería a contar con ellos sin dudarlo.", author: "Laura M.", location: "Torrejón de Ardoz" },
+  { text: "Reformaron nuestro piso entero. Equipo educado, muy limpio y atento a cada detalle. Comunicación impecable durante toda la obra.", author: "Javier R.", location: "Alcalá de Henares" },
+  { text: "Flexibles con los cambios que pedimos sobre la marcha y siempre con buena cara. El resultado supera lo que esperábamos.", author: "Marta G.", location: "Madrid" },
+  { text: "Cocina y baño en tres semanas, sin retrasos y con un acabado impecable. Recomendados al 100%.", author: "Andrés P.", location: "Coslada" },
+  { text: "Cuidaron muchísimo la limpieza y el orden mientras vivíamos en casa durante la reforma. Muy serios y responsables.", author: "Beatriz L.", location: "San Fernando de Henares" },
+  { text: "Presupuesto cerrado y cero sorpresas. Buen trato, buen precio y trabajo bien hecho. Justo lo que buscábamos.", author: "Carlos D.", location: "Madrid" },
 ];
 
+interface GoogleReview {
+  text: string;
+  author: string;
+  location: string;
+  rating: number;
+}
+
 export default function Reviews() {
+  const [reviews, setReviews] = useState(fallbackReviews);
+  const [rating, setRating] = useState(4.9);
+  const [total, setTotal] = useState(99);
+
+  useEffect(() => {
+    fetch("/api/reviews")
+      .then((r) => r.json())
+      .then((data) => {
+        if (data.reviews && data.reviews.length > 0) {
+          const mapped: GoogleReview[] = data.reviews
+            .filter((r: any) => r.rating >= 4)
+            .sort((a: any, b: any) => b.publishTime?.localeCompare(a.publishTime ?? "") ?? 0)
+            .slice(0, 6)
+            .map((r: any) => ({
+              text: r.text?.text ?? "",
+              author: r.authorAttribution?.displayName ?? "Cliente",
+              location: "",
+              rating: r.rating,
+            }));
+          if (mapped.length > 0) setReviews(mapped);
+        }
+        if (data.rating) setRating(data.rating);
+        if (data.userRatingCount) setTotal(data.userRatingCount);
+      })
+      .catch(() => {});
+  }, []);
+
   return (
     <section id="opiniones" className="py-24 md:py-32">
       <div className="container-edge">
@@ -42,7 +52,7 @@ export default function Reviews() {
           <div className="lg:col-span-5">
             <div className="eyebrow mb-4">Opiniones</div>
             <h2 className="font-display text-3xl md:text-5xl leading-tight">
-              {RATING.toString().replace(".", ",")}/5 sobre {REVIEWS} reseñas en Google.
+              {rating.toFixed(1).replace(".", ",")}/5 sobre {total} reseñas en Google.
             </h2>
           </div>
           <div className="lg:col-span-7 lg:pt-4">
@@ -73,7 +83,7 @@ export default function Reviews() {
               </blockquote>
               <figcaption className="mt-auto pt-4 border-t border-hairline">
                 <div className="text-sm font-medium">{r.author}</div>
-                <div className="text-xs text-muted-foreground">{r.location}</div>
+                {r.location && <div className="text-xs text-muted-foreground">{r.location}</div>}
               </figcaption>
             </figure>
           ))}
