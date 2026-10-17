@@ -1,0 +1,21 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Evita que el navegador cargue la página en un iframe (clickjacking)
+    X-Frame-Options = "DENY"
+    # Evita que el navegador detecte el tipo de contenido incorrectamente
+    X-Content-Type-Options = "nosniff"
+    # Protección básica XSS en navegadores antiguos
+    X-XSS-Protection = "1; mode=block"
+    # Solo envía el origen en peticiones HTTPS (no la URL completa)
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    # Fuerza HTTPS durante 1 año (HSTS)
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    # Permisos de funciones del navegador — solo lo necesario
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=(), usb=(), bluetooth=()"
+    # Content Security Policy — controla qué recursos puede cargar la página
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://api.whatsapp.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https:; media-src 'self' blob:; connect-src 'self' https://*.supabase.co; frame-ancestors 'none';"
